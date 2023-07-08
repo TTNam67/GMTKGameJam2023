@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class NumberSlots : MonoBehaviour
 {
-    public int _value;
+    [SerializeField] int _value;
+    [SerializeField] int _check = 0;
     
     [SerializeField] GameObject[] _itemSlots;
+    GameObject _enemy;
     void Start()
     {
-        
+        _enemy = GameObject.FindWithTag("Enemy");
+        if (_enemy == null)
+        {
+            Debug.LogWarning("NumberSlots.cs: Enemy is null");
+        }
     }
 
     // Update is called once per frame
@@ -21,9 +27,22 @@ public class NumberSlots : MonoBehaviour
     public void CountingValue()
     {
         _value = 0;
+        _check = 0;
         for (int i = 0; i < _itemSlots.Length; i++)
         {
-            _value += _itemSlots[i].GetComponent<ItemSlot>()._value;
+            int tmp = _itemSlots[i].GetComponent<ItemSlot>()._value;
+            _value += tmp;
+            if (tmp > 0) _check++;
         }
+
+        if (_check >= 3)
+        {
+            _enemy.GetComponent<Enemy>().RetrieveValue();
+        }
+    }
+
+    public int GetValue()
+    {
+        return _value;
     }
 }

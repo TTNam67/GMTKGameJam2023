@@ -31,7 +31,7 @@ IDropHandler
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        print("OnBeginDrag");
+        // print("OnBeginDrag");
         _canvasGroup.alpha = 0.7f;
 
         // Raycast goes through this object and lands on the items on
@@ -46,14 +46,14 @@ IDropHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        print("OnEndDrag");
+        // print("OnEndDrag");
         _canvasGroup.alpha = 1.0f;
         _canvasGroup.blocksRaycasts = true;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     { 
-        print("Down");
+        // print("Down");
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -95,7 +95,7 @@ IDropHandler
             _image.sprite = _sprites[_value];
             
 
-            yield return new WaitForSeconds(.054f);
+            yield return new WaitForSeconds(.042f);
             _cnt--;
         }   
     }

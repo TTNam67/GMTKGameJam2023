@@ -9,7 +9,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public int _value;
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Drop Item");
+        // Debug.Log("Drop Item");
         
 
         // eventData.pointerDrag: The gameObject that is currently being dragged
