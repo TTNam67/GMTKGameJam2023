@@ -8,14 +8,20 @@ public class Enemy : MonoBehaviour
 {
     GameObject _numberSlots;
     [SerializeField] int _value = 0;
-    [SerializeField] int _healthPoint = 50;
+    [SerializeField] float _healthPoint = 50f, _damage;
     int _hardRange = 2, _mediumRange = 3, _easyRange = 3, _totalRange;
+    
+    EnemyHealthBar _enemyHealthBar;
 
     void Start()
     {
         _numberSlots = GameObject.Find("NumberSlots");
         if (_numberSlots == null)
             Debug.LogWarning("Enemy.cs: Numberslots is null.");
+
+        _enemyHealthBar = GameObject.Find("EnemyHealthBar").GetComponent<EnemyHealthBar>();
+        if (_enemyHealthBar == null)
+            Debug.LogWarning("Enemy.cs: EnemyHealthBar is null.");
 
         _totalRange = _hardRange + _mediumRange + _easyRange;
     }
@@ -55,12 +61,16 @@ public class Enemy : MonoBehaviour
 
             Debug.Log("Stamina spent: " + path.Count);
         }
+
+        _damage = path.Count;
     }
 
     public void RetrieveValue()
     {
         _value = _numberSlots.GetComponent<NumberSlots>().GetValue();
         Solve(_value);
+
+        TakeDamage(_damage);
     }
 
 
@@ -213,5 +223,16 @@ public class Enemy : MonoBehaviour
         return new List<KeyValuePair<int, string>>();
     }
 
+    void TakeDamage(float damage)
+    {
+        _healthPoint = Mathf.Max(0f, _healthPoint - damage);
+        if (_healthPoint <= 0f)
+        {
+            
+        }
+
+        _enemyHealthBar.SetHealth(_healthPoint);
+
+    }
 
 }
