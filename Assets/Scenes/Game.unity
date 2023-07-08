@@ -806,6 +806,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1253283214}
     m_Modifications:
+    - target: {fileID: 769467702439621676, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
+      propertyPath: _base
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 769467702439621712, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Name
       value: Slot (2)
@@ -910,6 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1253283214}
+  - component: {fileID: 1253283215}
   m_Layer: 5
   m_Name: NumberSlots
   m_TagString: Untagged
@@ -940,6 +945,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1253283215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253283213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e155f88977a40b748896dcb1b0afcb04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1283300405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,9 +1048,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1253283214}
     m_Modifications:
+    - target: {fileID: 769467702439621676, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
+      propertyPath: _base
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 769467702439621712, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Name
-      value: Slot (1)
+      value: Slot2
       objectReference: {fileID: 0}
     - target: {fileID: 769467702439621715, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Pivot.x
@@ -1143,6 +1164,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1253283214}
     m_Modifications:
+    - target: {fileID: 769467702439621676, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
+      propertyPath: _base
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 769467702439621712, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Name
       value: Slot

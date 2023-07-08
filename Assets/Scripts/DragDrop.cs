@@ -15,7 +15,7 @@ IDropHandler
     [SerializeField] Image _image;
     [SerializeField] Sprite[] _sprites; 
 
-    public int _cnt, _randTimes = 60, _spriteId = 0;
+    public int _cnt, _randTimes = 60, _value = 0;
     private void Awake() {
         _rectTransform = GetComponent<RectTransform>();
         if (_rectTransform == null)
@@ -90,8 +90,9 @@ IDropHandler
     {
         while(_cnt > 0)
         {
-            _image.sprite = _sprites[_spriteId];
-            _spriteId = Random.Range(0, 10);
+           
+            _value = Random.Range(0, 10);
+            _image.sprite = _sprites[_value];
             
 
             yield return new WaitForSeconds(.054f);

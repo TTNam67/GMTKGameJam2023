@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class NumberSlots : MonoBehaviour
 {
-    int _value;
+    public int _value;
+    
+    [SerializeField] GameObject[] _itemSlots;
     void Start()
     {
         
@@ -13,6 +15,15 @@ public class NumberSlots : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // CountingValue();
+    }
+
+    public void CountingValue()
+    {
+        _value = 0;
+        for (int i = 0; i < _itemSlots.Length; i++)
+        {
+            _value += _itemSlots[i].GetComponent<ItemSlot>()._value;
+        }
     }
 }

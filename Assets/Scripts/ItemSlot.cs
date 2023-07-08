@@ -10,13 +10,18 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Drop Item");
-        // eventData.pointerDrag: The gameObject that is currently being dragged
-        if (eventData.pointerDrag != null)
-        {
-            eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; 
-        } 
-
         
+
+        // eventData.pointerDrag: The gameObject that is currently being dragged
+        GameObject draggedObject = eventData.pointerDrag;
+        
+        if (draggedObject != null)
+        {
+            draggedObject.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; 
+            _value = draggedObject.GetComponent<DragDrop>()._value * _base;
+        }
+
+        GameObject.Find("NumberSlots").GetComponent<NumberSlots>().CountingValue();
 
         
     }
