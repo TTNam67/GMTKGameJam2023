@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class DragDrop : MonoBehaviour, 
 IPointerDownHandler, IPointerUpHandler,
-IBeginDragHandler, IDragHandler, IEndDragHandler,
-IDropHandler
+IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private Canvas _canvas;
     RectTransform _rectTransform;
     CanvasGroup _canvasGroup;
     [SerializeField] Image _image;
     [SerializeField] Sprite[] _sprites; 
+
+    [SerializeField] Vector3 _originalPosition;
 
     public int _cnt, _randTimes = 60, _value = 0;
     private void Awake() {
@@ -28,7 +29,10 @@ IDropHandler
         _canvasGroup = GetComponent<CanvasGroup>();
         if (_canvasGroup == null)
             Debug.LogWarning("DragDrop.cs: CanvasGroup is null.");
+
+        _originalPosition = transform.position;        
     }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         // print("OnBeginDrag");
@@ -61,11 +65,6 @@ IDropHandler
         // print("Up");
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        
-    }
-
     private void Update() {
         // if (Input.GetKeyDown(KeyCode.Keypad0))
         // {
@@ -90,13 +89,16 @@ IDropHandler
     {
         while(_cnt > 0)
         {
-           
             _value = Random.Range(0, 10);
             _image.sprite = _sprites[_value];
             
-
             yield return new WaitForSeconds(.042f);
             _cnt--;
         }   
+    }
+
+    public void BackToOrigin()
+    {
+        transform.position = _originalPosition;
     }
 }

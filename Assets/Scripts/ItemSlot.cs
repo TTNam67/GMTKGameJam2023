@@ -6,17 +6,24 @@ using UnityEngine.EventSystems;
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] int _base;
+    [SerializeField] bool _isOccupied = false; // If there is any number in this slot 
     public int _value;
     public void OnDrop(PointerEventData eventData)
     {
-        // Debug.Log("Drop Item");
-        
-
         // eventData.pointerDrag: The gameObject that is currently being dragged
         GameObject draggedObject = eventData.pointerDrag;
+
+        if (_isOccupied)
+        {
+            draggedObject.GetComponent<DragDrop>().BackToOrigin();
+            return;
+        }
+
+        _isOccupied = true;
         
         if (draggedObject != null)
         {
+            
             draggedObject.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; 
             _value = draggedObject.GetComponent<DragDrop>()._value * _base;
         }
@@ -25,5 +32,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
         
     }
+
+    public bool IsOccupied()
+    {
+        return _isOccupied;
+    }
+
+    
 
 }

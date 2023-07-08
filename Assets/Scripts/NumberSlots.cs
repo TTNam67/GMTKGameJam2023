@@ -30,9 +30,9 @@ public class NumberSlots : MonoBehaviour
         _check = 0;
         for (int i = 0; i < _itemSlots.Length; i++)
         {
-            int tmp = _itemSlots[i].GetComponent<ItemSlot>()._value;
-            _value += tmp;
-            if (tmp > 0) _check++;
+            ItemSlot slot = _itemSlots[i].GetComponent<ItemSlot>();
+            _value += slot._value;
+            if (slot.IsOccupied()) _check++;
         }
 
         if (_check >= 3)
