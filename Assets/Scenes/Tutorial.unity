@@ -158,8 +158,8 @@ Camera:
   m_GameObject: {fileID: 32292271}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.1492346, g: 0.22121054, b: 0.3018868, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -207,6 +207,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &44921880 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+  m_PrefabInstance: {fileID: 233622449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &68694821
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +480,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214587511}
   m_CullTransparentMesh: 1
+--- !u!1001 &233622449
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 359386688}
+    m_Modifications:
+    - target: {fileID: 6082532885028418869, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_text
+      value: Back to Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721458, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: _scenceId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721460, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_Name
+      value: Menu Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 386.2839
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 73.5916
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -731.2345
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -485
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082532885616721461, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbedf24fe668ab042a070e5a1a42f41c, type: 3}
 --- !u!1 &359386684
 GameObject:
   m_ObjectHideFlags: 0
@@ -569,6 +679,7 @@ RectTransform:
   m_Children:
   - {fileID: 1350308753}
   - {fileID: 214587512}
+  - {fileID: 44921880}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -685,8 +796,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 19.1911, y: 0.8334}
-  m_SizeDelta: {x: 1337.7792, y: 705.9468}
+  m_AnchoredPosition: {x: -0.0000019073, y: 0}
+  m_SizeDelta: {x: 1350.7672, y: 602.0438}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513602495
 MonoBehaviour:
@@ -708,7 +819,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'In this game, '
+  m_text: "- In this game, instead of \"Computer gives player problem to solve\",
+    the player will give the problem back to computer\r\n\r\n- The game has limited
+    turns:\r\n+ In each turn, the player chooses 3 numbers in given 4 numbers to
+    create a 3-digits number. The computer has to solve a problem: \"In each step,
+    the computer can divide that number for 2, 3, or 5; or minus the number for 1,
+    2, or 3; The turn is considered finished if the number reaches 1\". \r\n\r\n+
+    Every step that it takes for the computer to change the number consumes 1 stamina.
+    After each turn, the computer's stamina will be regenerated at a number in range
+    (4, 8)\r\n\r\n+ If the computer's stamina reaches 0 at the end of a turn -> player
+    wins. If the player is out of turn -> computer wins"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 161f8113cfafad5448c719e7bcf2030f, type: 2}
   m_sharedMaterial: {fileID: 254367480523916294, guid: 161f8113cfafad5448c719e7bcf2030f, type: 2}
@@ -743,7 +863,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
