@@ -3,29 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IDropHandler
+public class NumberSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] int _base;
     [SerializeField] bool _isOccupied = false; // If there is any number in this slot 
-    public int _value;
+    public int _value = 0;
+    GameObject _draggedObject;
     public void OnDrop(PointerEventData eventData)
     {
+
         // eventData.pointerDrag: The gameObject that is currently being dragged
-        GameObject draggedObject = eventData.pointerDrag;
+        _draggedObject = eventData.pointerDrag;
 
         if (_isOccupied)
         {
-            draggedObject.GetComponent<DragDrop>().BackToOrigin();
+            _draggedObject.GetComponent<Number>().BackToOrigin();
             return;
         }
 
         _isOccupied = true;
         
-        if (draggedObject != null)
+        if (_draggedObject != null)
         {
             
-            draggedObject.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; 
-            _value = draggedObject.GetComponent<DragDrop>()._value * _base;
+            _draggedObject.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition; 
+            _value = _draggedObject.GetComponent<Number>()._value * _base;
         }
 
         GameObject.Find("NumberSlots").GetComponent<NumberSlots>().CountingValue();
@@ -38,6 +40,12 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         return _isOccupied;
     }
 
+    public void Reset()
+    {
+        _isOccupied = false;
+        _draggedObject.GetComponent<Number>().BackToOrigin();
+        _value = 0;
+    }
     
 
 }

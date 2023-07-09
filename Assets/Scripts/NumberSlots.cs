@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class NumberSlots : MonoBehaviour
 {
-    [SerializeField] int _value;
+    [SerializeField] int _value = 0;
     [SerializeField] int _check = 0;
     
-    [SerializeField] GameObject[] _itemSlots;
+    [SerializeField] GameObject[] _numberSlots;
     GameObject _enemy;
     void Start()
     {
@@ -28,9 +28,9 @@ public class NumberSlots : MonoBehaviour
     {
         _value = 0;
         _check = 0;
-        for (int i = 0; i < _itemSlots.Length; i++)
+        for (int i = 0; i < _numberSlots.Length; i++)
         {
-            ItemSlot slot = _itemSlots[i].GetComponent<ItemSlot>();
+            NumberSlot slot = _numberSlots[i].GetComponent<NumberSlot>();
             _value += slot._value;
             if (slot.IsOccupied()) _check++;
         }
@@ -44,5 +44,16 @@ public class NumberSlots : MonoBehaviour
     public int GetValue()
     {
         return _value;
+    }
+
+    public void Reset()
+    {
+        _check = 0;
+        _value = 0;
+        for (int i = 0; i < _numberSlots.Length; i++)
+        {
+            NumberSlot slot = _numberSlots[i].GetComponent<NumberSlot>();
+            slot.Reset();
+        }
     }
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3212300301145319033}
   - component: {fileID: 3212300301145319038}
   - component: {fileID: 3212300301145319039}
-  - component: {fileID: 3212300301145319032}
   - component: {fileID: 3212300301145319037}
+  - component: {fileID: -4429042847916876558}
   m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
@@ -78,7 +78,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3212300301145319032
+--- !u!225 &3212300301145319037
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3212300301145319034}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &-4429042847916876558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,11 +99,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3212300301145319034}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b68e19376fa7ab242b6a2218474252e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 196be5bfd20299247a801782f93c6177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _canvas: {fileID: 0}
-  _image: {fileID: 0}
+  _image: {fileID: 3212300301145319039}
   _sprites:
   - {fileID: 1341098307, guid: c327b684480308542ba72993a47d4c91, type: 3}
   - {fileID: 487513189, guid: c327b684480308542ba72993a47d4c91, type: 3}
@@ -105,17 +117,5 @@ MonoBehaviour:
   - {fileID: -1423253082, guid: c327b684480308542ba72993a47d4c91, type: 3}
   _originalPosition: {x: 0, y: 0, z: 0}
   _cnt: 0
-  _randTimes: 60
+  _randTimes: 45
   _value: 0
---- !u!225 &3212300301145319037
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3212300301145319034}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0

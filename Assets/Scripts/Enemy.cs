@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     GameObject _numberSlots;
+    [SerializeField] GameObject _numbers;
+    [SerializeField] TextMeshProUGUI _textMeshPro;
     [SerializeField] int _value = 0;
     [SerializeField] float _healthPoint = 50f, _damage;
+    
     int _hardRange = 2, _mediumRange = 3, _easyRange = 3, _totalRange;
     
     EnemyHealthBar _enemyHealthBar;
@@ -19,9 +23,19 @@ public class Enemy : MonoBehaviour
         if (_numberSlots == null)
             Debug.LogWarning("Enemy.cs: Numberslots is null.");
 
+        _numbers = GameObject.Find("Numbers");
+        if (_numbers == null)
+            Debug.LogWarning("Enemy.cs: Numbers is null.");
+
         _enemyHealthBar = GameObject.Find("EnemyHealthBar").GetComponent<EnemyHealthBar>();
         if (_enemyHealthBar == null)
             Debug.LogWarning("Enemy.cs: EnemyHealthBar is null.");
+
+        _textMeshPro = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
+        if (_textMeshPro == null)
+            Debug.LogWarning("Enemy.cs: TextMeshPro is null.");
+
+        _textMeshPro.text = "";
 
         _totalRange = _hardRange + _mediumRange + _easyRange;
     }
@@ -31,8 +45,9 @@ public class Enemy : MonoBehaviour
 
     public void Solve(int val)
     {
+        _textMeshPro.text = "";
         List<KeyValuePair<int, string>> path = new List<KeyValuePair<int, string>>();
-        
+
         int code = Random.Range(0, _totalRange);
         if (code < _hardRange)
         {
@@ -44,25 +59,36 @@ public class Enemy : MonoBehaviour
             path = MediumSolve(val);
             Debug.Log("MediumSolve");
         }
-        else 
+        else
         {
             path = EasySolve(val);
             Debug.Log("EasySolve");
         }
 
+        path.RemoveAt(0);
+
 
         if (path.Count > 0)
         {
-            // Debug.Log("The best solution to reach 1 from " + val + " is: ");
-            // foreach (KeyValuePair<int, string> step in path)
-            // {
-            //     Debug.Log(step.Value + ": " + step.Key);
-            // }
+            _textMeshPro.text += "Solution for " + _value + " is: \n";
+            foreach (KeyValuePair<int, string> step in path)
+            {
+                _textMeshPro.text += step.Value + ": " + step.Key + "\n";
+            }
 
-            Debug.Log("Stamina spent: " + path.Count);
+            _textMeshPro.text += "Stamina spent: " + path.Count;
         }
 
         _damage = path.Count;
+        
+    }
+
+    public void Reset()
+    {
+        _numberSlots.GetComponent<NumberSlots>().Reset();
+        _numbers.GetComponent<Numbers>().Reset();
+        _value = 0;
+        _textMeshPro.text = "";
     }
 
     public void RetrieveValue()
@@ -228,11 +254,16 @@ public class Enemy : MonoBehaviour
         _healthPoint = Mathf.Max(0f, _healthPoint - damage);
         if (_healthPoint <= 0f)
         {
-            
+            Die();
         }
 
         _enemyHealthBar.SetHealth(_healthPoint);
+        // Reset();
+    }
 
+    public void Die()
+    {
+        print("die");
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragDrop : MonoBehaviour, 
+public class Number : MonoBehaviour, 
 IPointerDownHandler, IPointerUpHandler,
 IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -16,7 +16,7 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
 
     [SerializeField] Vector3 _originalPosition;
 
-    public int _cnt, _randTimes = 60, _value = 0;
+    public int _cnt, _randTimes = 45, _value = 0;
     private void Awake() {
         _rectTransform = GetComponent<RectTransform>();
         if (_rectTransform == null)
@@ -30,7 +30,8 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
         if (_canvasGroup == null)
             Debug.LogWarning("DragDrop.cs: CanvasGroup is null.");
 
-        _originalPosition = transform.position;        
+        _originalPosition = transform.position;      
+        Reset();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -65,24 +66,10 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
         // print("Up");
     }
 
-    private void Update() {
-        // if (Input.GetKeyDown(KeyCode.Keypad0))
-        // {
-        //     _image.sprite = _sprites[0];
-        //     print("0");
-        // }
-        // else if (Input.GetKeyDown(KeyCode.Keypad1))
-        // {
-        //     _image.sprite = _sprites[1];
-        //     print("1");
-        // }
-
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            _cnt = 20;
+    public void RandomNumber()
+    {
+         _cnt = _randTimes;
             StartCoroutine(RandNumber());
-        }
-        
     }
 
     IEnumerator RandNumber()
@@ -92,7 +79,7 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
             _value = Random.Range(0, 10);
             _image.sprite = _sprites[_value];
             
-            yield return new WaitForSeconds(.042f);
+            yield return new WaitForSeconds(.02f);
             _cnt--;
         }   
     }
@@ -100,5 +87,11 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
     public void BackToOrigin()
     {
         transform.position = _originalPosition;
+    }
+
+    public void Reset() 
+    {
+        BackToOrigin();
+        RandomNumber();
     }
 }
