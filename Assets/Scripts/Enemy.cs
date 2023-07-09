@@ -262,6 +262,8 @@ public class Enemy : MonoBehaviour
 
     void TakeDamage(float damage)
     {
+        UpdateTurnsLeft();
+
         _healthPoint = Mathf.Max(0f, _healthPoint - damage);
         if (_healthPoint <= 0f)
         {
@@ -270,6 +272,14 @@ public class Enemy : MonoBehaviour
 
         UpdateHealthVisual();
         // Reset();
+    }
+
+    private void UpdateTurnsLeft()
+    {
+        _gameController._turnsLimit--;
+        _gameController.UpdateTurnsLeft(_gameController._turnsLimit);
+        if (_gameController._turnsLimit == 0)
+            _gameController.GameOverLose();
     }
 
     private void UpdateHealthVisual()
