@@ -5,7 +5,7 @@ using UnityEngine;
 public class NumberSlots : MonoBehaviour
 {
     [SerializeField] int _value = 0;
-    [SerializeField] int _check = 0;
+    [SerializeField] public int _check = 0;
     
     [SerializeField] GameObject[] _numberSlots;
     GameObject _enemy;

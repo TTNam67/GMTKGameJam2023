@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ public class EnemyHealthBar : MonoBehaviour
     public Slider _slider;
     [SerializeField] Image _image;
     Image _fillImage;
+    [SerializeField] TextMeshProUGUI _healthText;
     
     void Start()
     {
@@ -16,6 +18,7 @@ public class EnemyHealthBar : MonoBehaviour
             Debug.LogWarning("HealthBar.cs: Slider is null");
 
         _fillImage = transform.GetChild(0).GetComponent<Image>();
+        _healthText.text = _slider.value.ToString();
     }
 
     private void Update()
@@ -49,6 +52,7 @@ public class EnemyHealthBar : MonoBehaviour
     public void SetHealth(float health)
     {
         _slider.value = health;
+        _healthText.text = health.ToString();
     }
 
 

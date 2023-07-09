@@ -17,6 +17,7 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
     [SerializeField] Vector3 _originalPosition;
 
     public int _cnt, _randTimes = 45, _value = 0;
+    public bool _draggable = true;
     private void Awake() {
         _rectTransform = GetComponent<RectTransform>();
         if (_rectTransform == null)
@@ -45,8 +46,10 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
-        // print("Dragging");
-        _rectTransform.anchoredPosition += (eventData.delta / _canvas.scaleFactor);
+        if (_draggable)
+        {
+            _rectTransform.anchoredPosition += (eventData.delta / _canvas.scaleFactor);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)

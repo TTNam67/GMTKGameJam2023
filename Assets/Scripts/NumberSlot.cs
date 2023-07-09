@@ -14,6 +14,7 @@ public class NumberSlot : MonoBehaviour, IDropHandler
 
         // eventData.pointerDrag: The gameObject that is currently being dragged
         _draggedObject = eventData.pointerDrag;
+        _draggedObject.GetComponent<Number>()._draggable = false;
 
         if (_isOccupied)
         {

@@ -7,11 +7,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    GameObject _numberSlots;
+    [SerializeField] GameObject _numberSlots;
     [SerializeField] GameObject _numbers;
     [SerializeField] TextMeshProUGUI _textMeshPro;
     [SerializeField] int _value = 0;
-    [SerializeField] float _healthPoint = 50f, _damage;
+    [SerializeField] float _healthPoint, _damage, _maxHealthPoint = 50f, _healthRegen = 6f;
     
     int _hardRange = 2, _mediumRange = 3, _easyRange = 3, _totalRange;
     
@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         _textMeshPro.text = "";
 
         _totalRange = _hardRange + _mediumRange + _easyRange;
+        _healthPoint = _maxHealthPoint;
     }
     
 
@@ -85,10 +86,15 @@ public class Enemy : MonoBehaviour
 
     public void Reset()
     {
-        _numberSlots.GetComponent<NumberSlots>().Reset();
-        _numbers.GetComponent<Numbers>().Reset();
-        _value = 0;
-        _textMeshPro.text = "";
+        if (_numberSlots.GetComponent<NumberSlots>()._check == 3)
+        {
+            _healthPoint = Mathf.Min(_healthPoint + _healthRegen, _maxHealthPoint);
+            UpdateHealthVisual();
+            _numberSlots.GetComponent<NumberSlots>().Reset();
+            _numbers.GetComponent<Numbers>().Reset();
+            _value = 0;
+            _textMeshPro.text = "";
+        }
     }
 
     public void RetrieveValue()
@@ -257,9 +263,16 @@ public class Enemy : MonoBehaviour
             Die();
         }
 
-        _enemyHealthBar.SetHealth(_healthPoint);
+        UpdateHealthVisual();
         // Reset();
     }
+
+    private void UpdateHealthVisual()
+    {
+        
+        _enemyHealthBar.SetHealth(_healthPoint);
+    }
+
 
     public void Die()
     {
