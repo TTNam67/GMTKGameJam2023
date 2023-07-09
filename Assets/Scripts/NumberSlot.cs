@@ -9,8 +9,14 @@ public class NumberSlot : MonoBehaviour, IDropHandler
     [SerializeField] bool _isOccupied = false; // If there is any number in this slot 
     public int _value = 0;
     GameObject _draggedObject;
+    [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioClip _dropClip;
+    float _dropClipVolumeScale = 1.0f;
     public void OnDrop(PointerEventData eventData)
     {
+        _audioSource.clip = _dropClip;
+        _audioSource.volume = _dropClipVolumeScale;
+        _audioSource.Play();
 
         // eventData.pointerDrag: The gameObject that is currently being dragged
         _draggedObject = eventData.pointerDrag;

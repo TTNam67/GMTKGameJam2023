@@ -12,6 +12,7 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     [SerializeField] private Sprite _default, _pressed;
     [SerializeField] private AudioClip _compressedClip, _uncompressedClip;
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] int _scenceId = 1;
     RectTransform _rectTransform;
     float _changeY = 5.6f;
     float _uncompressedSoundScale = 0.7f, _compressedSoundScale = 0.7f;
@@ -68,6 +69,6 @@ public class ClickyButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 
     void LoadGameScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(_scenceId);
     }
 }

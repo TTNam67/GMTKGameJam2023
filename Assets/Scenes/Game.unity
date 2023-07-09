@@ -1503,7 +1503,7 @@ MonoBehaviour:
   _gameOverText: {fileID: 817763064}
   _turnsLeftText: {fileID: 976269756}
   _turnsLimit: 0
-  _maxTurnsLimit: 8
+  _maxTurnsLimit: 7
 --- !u!1 &976269754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2195,10 @@ PrefabInstance:
       propertyPath: _base
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 102838437250074404, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
+      propertyPath: _dropClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 10d7b7e675f0e884686f7017abafc683, type: 3}
     - target: {fileID: 769467702439621712, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Name
       value: Slot2
@@ -3137,6 +3141,10 @@ PrefabInstance:
       propertyPath: _base
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 102838437250074404, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
+      propertyPath: _dropClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 10d7b7e675f0e884686f7017abafc683, type: 3}
     - target: {fileID: 769467702439621712, guid: 9588f552580ae2d4ebd23f00149ae17e, type: 3}
       propertyPath: m_Name
       value: Slot

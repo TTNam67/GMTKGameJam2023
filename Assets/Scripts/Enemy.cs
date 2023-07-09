@@ -12,7 +12,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] TextMeshProUGUI _textMeshPro;
     [SerializeField] GameController _gameController;
     [SerializeField] int _value = 0;
-    [SerializeField] float _healthPoint, _damage, _maxHealthPoint = 30f, _healthRegen = 7f;
+    float _healthPoint, _damage, _maxHealthPoint = 30f, _healthRegen = 7f;
+    float _minHealthRegen = 4, _maxHealthRegen = 8;
     
     int _hardRange = 2, _mediumRange = 3, _easyRange = 3, _totalRange;
     
@@ -79,6 +80,7 @@ public class Enemy : MonoBehaviour
             _textMeshPro.text += "Solution for " + _value + " is: \n";
             foreach (KeyValuePair<int, string> step in path)
             {
+                for (int i = 0; i < 100000; i++){}
                 _textMeshPro.text += step.Value + ": " + step.Key + "\n";
             }
 
@@ -93,6 +95,8 @@ public class Enemy : MonoBehaviour
     {
         if (_numberSlots.GetComponent<NumberSlots>()._check == 3)
         {
+            _healthRegen = Random.Range((int)_minHealthRegen, (int)_maxHealthRegen);
+
             _healthPoint = Mathf.Min(_healthPoint + _healthRegen, _maxHealthPoint);
             UpdateHealthVisual();
             _numberSlots.GetComponent<NumberSlots>().Reset();

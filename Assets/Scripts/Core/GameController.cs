@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameOverScreen _gameOverScreen;
     [SerializeField] TextMeshProUGUI _gameOverText;
     [SerializeField] TextMeshProUGUI _turnsLeftText;
-    [SerializeField] public int _turnsLimit, _maxTurnsLimit = 8;
+    [HideInInspector] public int _turnsLimit, _maxTurnsLimit = 7;
     void Start()
     {
         _gameOverScreen.gameObject.SetActive(false);
