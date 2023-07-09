@@ -69,10 +69,10 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
         // print("Up");
     }
 
-    public void RandomNumber()
+    public void GenerateNumber()
     {
-         _cnt = _randTimes;
-            StartCoroutine(RandNumber());
+        _cnt = _randTimes;
+        StartCoroutine(RandNumber());
     }
 
     IEnumerator RandNumber()
@@ -90,11 +90,13 @@ IBeginDragHandler, IDragHandler, IEndDragHandler
     public void BackToOrigin()
     {
         transform.position = _originalPosition;
+        _draggable = true;
     }
 
     public void Reset() 
     {
         BackToOrigin();
-        RandomNumber();
+        GenerateNumber();
+        
     }
 }

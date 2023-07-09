@@ -10,8 +10,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject _numberSlots;
     [SerializeField] GameObject _numbers;
     [SerializeField] TextMeshProUGUI _textMeshPro;
+    [SerializeField] GameController _gameController;
     [SerializeField] int _value = 0;
-    [SerializeField] float _healthPoint, _damage, _maxHealthPoint = 50f, _healthRegen = 6f;
+    [SerializeField] float _healthPoint, _damage, _maxHealthPoint = 30f, _healthRegen = 7f;
     
     int _hardRange = 2, _mediumRange = 3, _easyRange = 3, _totalRange;
     
@@ -34,6 +35,10 @@ public class Enemy : MonoBehaviour
         _textMeshPro = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
         if (_textMeshPro == null)
             Debug.LogWarning("Enemy.cs: TextMeshPro is null.");
+
+        _gameController = GameObject.FindWithTag("MainCamera").GetComponent<GameController>();
+        if (_gameController == null)
+            Debug.LogWarning("Enemy.cs: GameController is null.");
 
         _textMeshPro.text = "";
 
@@ -276,7 +281,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        print("die");
+        _gameController.GameOverWin();
     }
 
 }
